@@ -5,7 +5,15 @@
 {% block body %}
     <h1 class="">Taches index</h1>
 
-    <table class="table">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5>Ajouter une Nouvelle Tache</h5>
+            <a href="{{ path('app_taches_new') }}"><img src="{{ asset('assets/img/addition-thick-symbol.png')}}" alt="plus" width="25%"></a>
+        </div>
+        
+    </div>
+
+    <table class="container table">
         <thead>
             <tr>
                 
@@ -39,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_taches_new') }}">Create new</a>
+    
 {% endblock %}
