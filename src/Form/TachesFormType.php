@@ -14,10 +14,10 @@ class TachesFormType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('date_échéance')
-            ->add('priorité')
+            ->add('date_echeance')
+            ->add('priorite')
             ->add('statut')
-            ->add('créateur')
+            ->add('createur')
         ;
     }
 

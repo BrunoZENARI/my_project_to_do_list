@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}To Do LIST{% endblock %}
+
+{% block body %}
+    <h1>Taches</h1>
+
+    {# <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date_echeance</th>
+                <th>Priorite</th>
+                <th>Statut</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tach in ../taches %}
+            <tr>
+                <td>{{ path('app_taches') tach.id }}</td>
+                <td>{{ path('app_taches') tach.titre }}</td>
+                <td>{{ path('app_taches') tach.description }}</td>
+                <td>{{ path('app_taches') tach.dateecheance ? tach.dateecheance|date('Y-m-d') : '' }}</td>
+                <td>{{ path('app_taches') tach.priorite }}</td>
+                <td>{{ path('app_taches') tach.statut ? tach.statut|join(', ') : '' }}</td>
+                <td>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> #}
+    <div id='calendar'></div>
+{% endblock %}
