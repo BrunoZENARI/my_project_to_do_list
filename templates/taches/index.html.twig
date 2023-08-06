@@ -3,12 +3,14 @@
 {% block title %}Taches index{% endblock %}
 
 {% block body %}
-    <h1 class="">Taches index</h1>
+<div class="container gap-3">
+    <h1>Taches index</h1>
 
     <div class="card" style="width: 18rem;">
+        {# <img class="card-img-top" src="{{ asset('assets/img/addition-thick-symbol.png')}}" alt="plus"> #}
         <div class="card-body">
-            <h5>Ajouter une Nouvelle Tache</h5>
-            <a href="{{ path('app_taches_new') }}"><img src="{{ asset('assets/img/addition-thick-symbol.png')}}" alt="plus" width="25%"></a>
+            <h5 class="card-title">Nouvelle Tache</h5>
+            <a href="{{ path('app_taches_new') }}" class="btn btn-primary">Ajouter</a>
         </div>
         
     </div>
@@ -46,6 +48,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     
 {% endblock %}
