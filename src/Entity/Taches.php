@@ -20,14 +20,11 @@ class Taches
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
-    private ?\DateTimeImmutable $date_echeance = null;
-
     #[ORM\Column]
-    private ?int $priorite = null;
+    private ?array $priorite = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $statut = [];
+    #[ORM\Column(length: 255)]
+    private ?array $statut = null;
 
     #[ORM\ManyToOne(inversedBy: 'taches')]
     #[ORM\JoinColumn(nullable: false)]
@@ -80,31 +77,19 @@ class Taches
         return $this;
     }
 
-    public function getDateecheance(): ?\DateTimeImmutable
-    {
-        return $this->date_echeance;
-    }
-
-    public function setDateecheance(\DateTimeImmutable $date_echeance): static
-    {
-        $this->date_echeance = $date_echeance;
-
-        return $this;
-    }
-
-    public function getPriorite(): ?int
+    public function getPriorite(): ?array
     {
         return $this->priorite;
     }
 
-    public function setPriorite(int $priorite): static
+    public function setPriorite(array $priorite): static
     {
         $this->priorite = $priorite;
 
         return $this;
     }
 
-    public function getStatut(): array
+    public function getStatut(): ?array
     {
         return $this->statut;
     }
@@ -198,5 +183,9 @@ class Taches
         $this->text_color = $text_color;
 
         return $this;
+    }
+
+    public function __toString(){
+        return $this->priorite; // Remplacer champ par une propriété "string" de l'entité
     }
 }

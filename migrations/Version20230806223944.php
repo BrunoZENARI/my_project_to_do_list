@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230803132335 extends AbstractMigration
+final class Version20230806223944 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20230803132335 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE taches CHANGE date_échéance date_echeance DATE NOT NULL COMMENT \'(DC2Type:date_immutable)\'');
+        $this->addSql('ALTER TABLE taches CHANGE priorite priorite VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE taches CHANGE date_echeance date_échéance DATE NOT NULL COMMENT \'(DC2Type:date_immutable)\'');
+        $this->addSql('ALTER TABLE taches CHANGE priorite priorite INT NOT NULL');
     }
 }
