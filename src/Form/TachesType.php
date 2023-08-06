@@ -46,7 +46,6 @@ class TachesType extends AbstractType
                 'multiple' => true,
                 'expanded' => true, // Affiche les options sous forme de boutons radio
             ])
-            ->add('all_day')
             ->add('start', DateTimeType::class, [
                 'date_widget' => 'single_text'
             ])

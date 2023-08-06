@@ -13,24 +13,34 @@
             </tr>
             <tr>
                 <th>Titre</th>
-                <td>{{ tach.titre }}</td>
+                <td>{{ tach.title }}</td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>{{ tach.description }}</td>
             </tr>
             <tr>
-                <th>Date_echeance</th>
-                <td>{{ tach.dateecheance ? tach.dateecheance|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
                 <th>Priorite</th>
-                <td>{{ tach.priorite }}</td>
+                <td>
+                    {% for priority in tach.priorite %}
+                            {{ priority }}
+                            {% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Statut</th>
-                <td>{{ tach.statut ? tach.statut|join(', ') : '' }}</td>
+                <td>{{ tach.statut | join(', ') }}</td>
             </tr>
+            <tr>
+                <th>Date début</th>
+                <td>{{ tach.start ? tach.start|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date fin</th>
+                <td>{{ tach.end ? tach.end|date('Y-m-d') : '' }}</td>
+            </tr>
+            
         </tbody>
     </table>
 

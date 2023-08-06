@@ -25,10 +25,9 @@
                 <th>Statut</th>
                 <th>Start</th>
                 <th>End</th>
-                <th>All day</th>
-                <th>Background Color</th>
+                {# <th>Background Color</th>
                 <th>Border Color</th>
-                <th>Text Color</th>
+                <th>Text Color</th> #}
                 <th>actions</th>
             </tr>
         </thead>
@@ -47,10 +46,9 @@
                 <td>{{ tach.statut | join(', ') }}</td>
                 <td>{{ tach.start ? tach.start.format('Y-m-d') : '' }}</td>
                 <td>{{ tach.end ? tach.end.format('Y-m-d') : '' }}</td>
-                <td>{{ tach.all_day is not null ? (tach.all_day ? 'Yes' : 'No') : 'N/A' }}</td>
-                <td>{{ tach.background_color }}</td>
+                {# <td>{{ tach.background_color }}</td>
                 <td>{{ tach.border_color }}</td>
-                <td>{{ tach.text_color }}</td>
+                <td>{{ tach.text_color }}</td> #}
                 <td>
                     <a href="{{ path('app_taches_show', {'id': tach.id}) }}">show</a>
                     <a href="{{ path('app_taches_edit', {'id': tach.id}) }}">edit</a>

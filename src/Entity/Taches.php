@@ -36,9 +36,6 @@ class Taches
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $end = null;
 
-    #[ORM\Column]
-    private ?bool $all_day = null;
-
     #[ORM\Column(length: 7)]
     private ?string $background_color = null;
 
@@ -133,18 +130,6 @@ class Taches
     public function setEnd(\DateTimeInterface $end): static
     {
         $this->end = $end;
-
-        return $this;
-    }
-
-    public function isAllDay(): ?bool
-    {
-        return $this->all_day;
-    }
-
-    public function setAllDay(bool $all_day): static
-    {
-        $this->all_day = $all_day;
 
         return $this;
     }
