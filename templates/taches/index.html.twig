@@ -19,11 +19,17 @@
         <thead>
             <tr>
                 
-                <th>Titre</th>
+                <th>Title</th>
                 <th>Description</th>
                 <th>Date_echeance</th>
                 <th>Priorite</th>
                 <th>Statut</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>All day</th>
+                <th>Background Color</th>
+                <th>Border Color</th>
+                <th>Text Color</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -31,11 +37,17 @@
         {% for tach in taches %}
             <tr>
                 
-                <td>{{ tach.titre }}</td>
+                <td>{{ tach.title }}</td>
                 <td>{{ tach.description }}</td>
                 <td>{{ tach.dateecheance ? tach.dateecheance|date('Y-m-d') : '' }}</td>
                 <td>{{ tach.priorite }}</td>
-                <td>{{ tach.statut ? tach.statut|join(', ') : '' }}</td>
+                <td>{{ tach.statut }}</td>
+                <td>{{ tach.star }}</td>
+                <td>{{ tach.end }}</td>
+                <td>{{ tach.background_color }}</td>
+                <td>{{ tach.border_color }}</td>
+                <td>{{ tach.text_color }}</td>
+                <td>{{ tach.statut }}</td>
                 <td>
                     <a href="{{ path('app_taches_show', {'id': tach.id}) }}">show</a>
                     <a href="{{ path('app_taches_edit', {'id': tach.id}) }}">edit</a>

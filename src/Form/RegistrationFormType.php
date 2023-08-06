@@ -20,17 +20,17 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class, [
-                'label' => 'Email:',
+            ->add('firstname', TextType::class, [
+                'label' => 'Firstame:',
                 'attr' => ['class' => 'form-control', 'required' => 'required']
             ])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
+            ->add('lastname', TextType::class, [
+                'label' => 'Lastname:',
+                'attr' => ['class' => 'form-control', 'required' => 'required']
+            ])
+            ->add('email', EmailType::class, [
+                    'label' => 'Email:',
+                    'attr' => ['class' => 'form-control', 'required' => 'required']
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -51,13 +51,13 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('lastname', TextType::class, [
-                'label' => 'Lastname:',
-                'attr' => ['class' => 'form-control', 'required' => 'required']
-            ])
-            ->add('firstname', TextType::class, [
-                'label' => 'Firstame:',
-                'attr' => ['class' => 'form-control', 'required' => 'required']
+            ->add('agreeTerms', CheckboxType::class, [
+                'mapped' => false,
+                'constraints' => [
+                    new IsTrue([
+                        'message' => 'You should agree to our terms.',
+                    ]),
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
