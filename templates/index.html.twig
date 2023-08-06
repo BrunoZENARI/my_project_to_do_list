@@ -9,7 +9,12 @@
     <h1>Taches</h1>
 
 
-    <div id='calendar'></div>
+    <div id='calendrier'></div>
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 {% endblock %}
