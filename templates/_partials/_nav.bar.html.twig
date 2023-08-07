@@ -24,9 +24,14 @@
             </li>
 
           {% else %}
+          <div class="d-flex flex-row gap-3">
               <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_login')}}">Log in</a>
+                <a class="btn btn-primary" href="{{ path('app_register')}}">Sign Up</a>
               </li>
+              <li class="nav-item">
+                <a class="btn btn-primary" href="{{ path('app_login')}}">Log in</a>
+              </li>
+          </div>
           {% endif %}
           
           

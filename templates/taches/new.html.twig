@@ -3,9 +3,13 @@
 {% block title %}New Taches{% endblock %}
 
 {% block body %}
-    <h1>Create new Taches</h1>
+    <div class="container">
+        <div class="row">
+            <h1>Create new Taches</h1>
 
-    {{ include('taches/_form.html.twig') }}
+            {{ include('taches/_form.html.twig') }}
 
-    <a href="{{ path('app_taches_index') }}">back to list</a>
+            <a href="{{ path('app_taches_index') }}">back to list</a>
+        </div>
+    </div>
 {% endblock %}

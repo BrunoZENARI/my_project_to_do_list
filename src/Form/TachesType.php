@@ -33,7 +33,7 @@ class TachesType extends AbstractType
                     'Moyenne' => '2',
                     'Basse' => '1',
                 ],
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true, // Affiche les options sous forme de boutons radio
             ])
             ->add('statut', ChoiceType::class, [
@@ -43,7 +43,7 @@ class TachesType extends AbstractType
                     'En cours' => 'en cours',
                     'Terminé' => 'terminé',
                 ],
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true, // Affiche les options sous forme de boutons radio
             ])
             ->add('start', DateTimeType::class, [
