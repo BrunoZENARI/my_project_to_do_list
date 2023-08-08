@@ -172,5 +172,6 @@ class Taches
 
     public function __toString(){
         return $this->priorite; // Remplacer champ par une propriété "string" de l'entité
+        return $this->statut; // Remplacer champ par une propriété "string" de l'entité
     }
 }
