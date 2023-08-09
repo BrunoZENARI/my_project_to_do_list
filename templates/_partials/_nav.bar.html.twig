@@ -16,6 +16,11 @@
           {% endif %}
           
         </ul>
+        {% if app.user %}
+        <span class="navbar-text">
+          Bienvenue {{ app.user.firstname }} !
+        </span>
+        {% endif %}
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {% if app.user %}
             

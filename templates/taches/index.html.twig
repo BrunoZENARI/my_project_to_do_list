@@ -57,6 +57,15 @@
         
         </tbody>
     </table>
+
+    <div class="row my-5">
+        <div class="col-3">Nbre de taches : {{ taskCount }}</div>
+        <div class="col-3">Nbre de taches en attente : {{ taskCountEA }}</div>
+        <div class="col-3">Nbre de taches en cours : {{ taskCountEC }}</div>
+        <div class="col-3">Nbre de taches terminées : {{ taskCountF }}</div>
+    </div>
+       
+
     <section class="d-flex justify-content-center mb-5 pb-5">
         <div class="card " style="width: 18rem;">
             {# <img class="card-img-top" src="{{ asset('assets/img/addition-thick-symbol.png')}}" alt="plus"> #}

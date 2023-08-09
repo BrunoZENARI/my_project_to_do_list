@@ -16,11 +16,39 @@ class TachesController extends AbstractController
 {
     #[Route('/', name: 'app_taches_index', methods: ['GET'])]
     public function index(TachesRepository $tachesRepository): Response
-    {
+    {   
+        $taskCount = $tachesRepository->count([]);
+        $taskCountEA = $tachesRepository->createQueryBuilder('t')
+            ->select('COUNT(t)')
+            ->andWhere('t.statut LIKE :statut')
+            ->setParameter('statut', '%en attente%')
+            ->getQuery()
+            ->getSingleScalarResult();
+        $taskCountEC = $tachesRepository->createQueryBuilder('t')
+            ->select('COUNT(t)')
+            ->andWhere('t.statut LIKE :statut')
+            ->setParameter('statut', '%en cours%')
+            ->getQuery()
+            ->getSingleScalarResult();
+        $taskCountF = $tachesRepository->createQueryBuilder('t')
+            ->select('COUNT(t)')
+            ->andWhere('t.statut LIKE :statut')
+            ->setParameter('statut', '%termine%')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        
+
         return $this->render('taches/index.html.twig', [
             'taches' => $tachesRepository->findAll(),
+            'taskCount' => $taskCount,
+            'taskCountEA' => $taskCountEA,
+            'taskCountEC' => $taskCountEC,
+            'taskCountF' => $taskCountF,
         ]);
+        dump($taskCountEA);
     }
+
 
     #[Route('/new', name: 'app_taches_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response

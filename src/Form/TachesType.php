@@ -47,7 +47,7 @@ class TachesType extends AbstractType
                 'choices' => [
                     'En attente' => 'en attente',
                     'En cours' => 'en cours',
-                    'Terminé' => 'terminé',
+                    'Termine' => 'termine',
                 ],
                 'attr' => ['class' => 'form-control d-flex gap-3 mb-2', 'required' => 'required'],
                 'multiple' => true,
