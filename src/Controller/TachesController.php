@@ -15,8 +15,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class TachesController extends AbstractController
 {
     #[Route('/', name: 'app_taches_index', methods: ['GET'])]
-    public function index(TachesRepository $tachesRepository): Response
-    {   
+    public function index(Request $request, TachesRepository $tachesRepository): Response
+    {
+        $criteria = $request->query->get('criteria', 'all');
+        $sort = $request->query->get('sort', 'id');
+        $order = $request->query->get('order', 'asc');
+        $userId = $request->query->get('user', null);
+    
+        // Inverser l'ordre si c'est déjà défini
+        $newOrder = ($order === 'asc') ? 'desc' : 'asc';
+    
+        $queryBuilder = $tachesRepository->createQueryBuilder('t');
+
+        if ($userId !== null) {
+            $queryBuilder->andWhere('t.createur = :user')
+                ->setParameter('user', $userId);
+        }
+    
+        $queryBuilder->orderBy('t.' . $sort, $order);
+        
+        $taches = $queryBuilder->getQuery()->getResult();
+    
         $taskCount = $tachesRepository->count([]);
         $taskCountEA = $tachesRepository->createQueryBuilder('t')
             ->select('COUNT(t)')
@@ -36,18 +55,21 @@ class TachesController extends AbstractController
             ->setParameter('statut', '%termine%')
             ->getQuery()
             ->getSingleScalarResult();
-
-        
-
+    
         return $this->render('taches/index.html.twig', [
-            'taches' => $tachesRepository->findAll(),
+            'taches' => $taches,
             'taskCount' => $taskCount,
             'taskCountEA' => $taskCountEA,
             'taskCountEC' => $taskCountEC,
             'taskCountF' => $taskCountF,
+            'criteria' => $criteria,
+            'sort' => $sort,
+            'order' => $order,
+            'newOrder' => $newOrder,
         ]);
-        dump($taskCountEA);
     }
+    
+
 
 
     #[Route('/new', name: 'app_taches_new', methods: ['GET', 'POST'])]

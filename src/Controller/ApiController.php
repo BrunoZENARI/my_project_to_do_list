@@ -46,7 +46,7 @@ class ApiController extends AbstractController
 
             $taches->setTitle($donnees->title);
             $taches->setDescription($donnees->description);
-            dump($donnees->start, $donnees->end);
+            // dump($donnees->start, $donnees->end);
             $taches->setStart(new DateTime($donnees->start));
             $taches->setEnd(new DateTime($donnees->end));
             $taches->setBackgroundColor($donnees->backgroundColor);

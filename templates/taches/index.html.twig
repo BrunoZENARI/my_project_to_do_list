@@ -8,18 +8,26 @@
     <div class="d-flex justify-content-center mt-5 mb-5">
         <h1>Taches index</h1>
     </div>
+
+    <div class="card mb-3" style="max-width: 300px;">
+        <div class="card-header">
+            Filtres
+        </div>
+        <div class="card-body">
+            <a class="btn btn-link d-block mb-2" href="{{ path('app_taches_index', {'criteria': 'all', 'sort': sort, 'order': order, 'user': null}) }}">Toutes les tâches</a>
+            <a class="btn btn-link d-block" href="{{ path('app_taches_index', {'criteria': criteria, 'sort': sort, 'order': order, 'user': app.user.id}) }}">Tâches de l'utilisateur</a>
+        </div>
+    </div>
+
     <table class="container mt-5 mb-5 table">
         <thead>
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Priorite</th>
-                <th>Statut</th>
-                <th>Start</th>
-                <th>End</th>
-                {# <th>Background Color</th>
-                <th>Border Color</th>
-                <th>Text Color</th> #}
+                <th><a href="{{ path('app_taches_index', {'sort': 'priorite', 'order': newOrder}) }}">Priorite</a></th>
+                <th><a href="{{ path('app_taches_index', {'sort': 'statut', 'order': newOrder}) }}">Statut</a></th>
+                <th><a href="{{ path('app_taches_index', {'sort': 'start', 'order': newOrder}) }}">Début</a></th>
+                <th><a href="{{ path('app_taches_index', {'sort': 'end', 'order': newOrder}) }}">Fin</a></th>
                 <th>actions</th>
             </tr>
         </thead>

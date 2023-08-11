@@ -33,12 +33,13 @@
             },
             events: {{ data|raw}},
             editable: true,
-            eventResizableFromStart: true
+            eventResizableFromStart: true,
+            
         })
 
         if(isUserLoggedIn){
         calendar.on('eventChange', (e) =>{
-            console.log(e);
+            
             let url = `/api/${e.event.id}/edit`
             let donnees = {
                 "title": e.event.title,
