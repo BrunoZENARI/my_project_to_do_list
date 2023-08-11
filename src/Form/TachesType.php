@@ -35,11 +35,6 @@ class TachesType extends AbstractType
                     'Moyenne' => '2',
                     'Basse' => '1',
                 ],
-                'choice_attr' => [
-                    'Apple' => ['data-color' => 'Red'],
-                    'Banana' => ['data-color' => 'Yellow'],
-                    'Durian' => ['data-color' => 'Green'],
-                ],
                 'attr' => ['class' => 'form-control d-flex gap-3 mb-2', 'required' => 'required'],
                 'multiple' => true,
                 'expanded' => true, // Affiche les options sous forme de boutons radio
@@ -52,9 +47,9 @@ class TachesType extends AbstractType
                     'Termine' => 'termine',
                 ],
                 'choice_attr' => [
-                    'En attente' => ['data-color' => 'Red'],
-                    'En cours' => ['data-color' => 'Yellow'],
-                    'Termine' => ['data-color' => 'Green'],
+                    'En attente' => ['backgroundColor' => 'Red'],
+                    'En cours' => ['backgroundColor' => 'Yellow'],
+                    'Termine' => ['backgroundColor' => 'Green'],
                 ],
                 'attr' => ['class' => 'form-control d-flex gap-3 mb-2', 'required' => 'required'],
                 'multiple' => true,
